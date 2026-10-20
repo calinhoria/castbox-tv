@@ -169,6 +169,7 @@ class WebInterfaceServer(
         params["appVizPack"]?.let { service.setAppVizPack(it) }
         params["appVizShowName"]?.toBooleanOrFlag()?.let { service.setAppVizShowName(it) }
         params["appVizMockAudio"]?.toBooleanOrFlag()?.let { service.setAppVizMockAudio(it) }
+        params["appVizFavoriteName"]?.let { service.toggleAppVizFavorite(it) }
         if (params["appVizFavoriteToggle"]?.toBooleanOrFlag() == true) {
             service.toggleAppVizFavorite(service.getAppVizPreset())
         }

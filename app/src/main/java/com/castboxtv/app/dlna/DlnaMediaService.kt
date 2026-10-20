@@ -843,7 +843,25 @@ class DlnaMediaService : Service(), MediaPlayerCallback {
         return loaded
     }
 
+    /** Names of the Visualiser Studio (built-in) presets. */
+    private fun builtinPresetNames(): List<String> = com.castboxtv.app.viz.VizPresets.names(this)
+
+    /**
+     * Pack the screen should actually render. The Favorites pack mixes built-in
+     * and Milkdrop presets, so the engine follows the current preset.
+     */
+    fun getEffectiveAppVizPack(): String {
+        val pack = getAppVizPack()
+        if (pack != com.castboxtv.app.viz.ProjectMEngine.PACK_FAVORITES) return pack
+        return if (getAppVizPreset() in builtinPresetNames()) {
+            com.castboxtv.app.viz.ProjectMEngine.PACK_BUILTIN
+        } else pack
+    }
+
     fun getAppVizPresetNames(): List<String> {
+        if (getAppVizPack() == com.castboxtv.app.viz.ProjectMEngine.PACK_FAVORITES) {
+            return getAppVizFavorites().distinct()
+        }
         if (getAppVizPack() == com.castboxtv.app.viz.ProjectMEngine.PACK_BUILTIN) {
             return com.castboxtv.app.viz.VizPresets.names(this)
         }

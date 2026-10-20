@@ -173,7 +173,7 @@ fun NowPlayingScreen(
             appVizCycle = service?.isAppVizCycle() == true
             appVizCycleSecs = service?.getAppVizCycleSecs() ?: 8
             appVizShowFps = service?.isAppVizShowFps() == true
-            appVizPack = service?.getAppVizPack() ?: "builtin"
+            appVizPack = service?.getEffectiveAppVizPack() ?: "builtin"
             appVizShowName = service?.isAppVizShowName() == true
             appVizFavoritesVersion = service?.getAppVizFavoritesVersion() ?: 0
             delay(1000)

@@ -52,19 +52,64 @@
     document.querySelectorAll('[data-pack]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pack === pack)));
   }
 
-  function fillPresets(names, selected) {
-    const sel = $('appVizPreset');
-    const same = sel.options.length === names.length && names.every((n, i) => sel.options[i].value === n);
-    if (!same) {
-      sel.replaceChildren(...names.map((n) => {
-        const o = document.createElement('option');
-        o.value = n;
-        o.textContent = n;
-        return o;
-      }));
-    }
-    if (names.length && document.activeElement !== sel) sel.value = selected;
-    $('presetCount').textContent = names.length + ' presets in this pack';
+  const STAR_PATH = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+  let listKey = '';
+
+  function starIcon(on) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('class', 'h-5 w-5');
+    svg.setAttribute('fill', on ? 'currentColor' : 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', STAR_PATH);
+    svg.appendChild(path);
+    return svg;
+  }
+
+  function fillPresets(names, selected, favorites, pack) {
+    const query = $('presetSearch').value.trim().toLowerCase();
+    const favs = new Set(favorites || []);
+    const key = [pack, selected, query, names.join('\u0001'), [...favs].join('\u0001')].join('\u0002');
+    const shown = query ? names.filter((n) => n.toLowerCase().includes(query)) : names;
+    $('presetCount').textContent = pack === 'favorites'
+      ? names.length + (names.length === 1 ? ' favorite' : ' favorites')
+      : names.length + ' presets · ' + favs.size + ' starred';
+
+    const empty = $('presetEmpty');
+    empty.classList.toggle('hidden', shown.length > 0);
+    empty.textContent = names.length === 0 && pack === 'favorites'
+      ? 'No favorites yet. Star presets in any other pack and they will show up here.'
+      : 'No presets match your search.';
+    if (key === listKey) return;
+    listKey = key;
+
+    const list = $('presetList');
+    list.classList.toggle('hidden', shown.length === 0);
+    const scroll = list.scrollTop;
+    list.replaceChildren(...shown.map((name) => {
+      const active = name === selected;
+      const on = favs.has(name);
+      const li = document.createElement('li');
+      li.className = 'flex items-center ' + (active ? 'bg-cyan-400/10' : '');
+      const pick = document.createElement('button');
+      pick.type = 'button';
+      pick.className = 'min-w-0 flex-1 truncate px-3 py-3 text-left text-sm transition hover:bg-white/5 ' + (active ? 'font-medium text-cyan-200' : 'text-slate-200');
+      pick.textContent = name;
+      pick.addEventListener('click', () => send('appVizPreset', name));
+      const star = document.createElement('button');
+      star.type = 'button';
+      star.setAttribute('aria-label', (on ? 'Unstar ' : 'Star ') + name);
+      star.className = 'px-3 py-3 transition hover:bg-white/5 ' + (on ? 'text-amber-300' : 'text-slate-500 hover:text-slate-300');
+      star.appendChild(starIcon(on));
+      star.addEventListener('click', () => send('appVizFavoriteName', name));
+      li.append(pick, star);
+      return li;
+    }));
+    list.scrollTop = scroll;
   }
 
   function renderStatus(s) {
@@ -91,12 +136,12 @@
     $('crossfadeAlgorithm').value = s.crossfadeAlgorithm;
     $('crossfadeOptions').classList.toggle('opacity-40', !s.crossfadeEnabled);
     renderPacks(s.appVizPack);
-    fillPresets(s.appVizPresets || [], s.appVizPreset);
+    fillPresets(s.appVizPresets || [], s.appVizPreset, s.appVizFavorites, s.appVizPack);
 
     const starred = !!s.appVizIsFavorite;
     $('favIcon').setAttribute('fill', starred ? 'currentColor' : 'none');
     $('favBtn').classList.toggle('!text-amber-300', starred);
-    $('favLabel').textContent = starred ? 'Starred' : 'Favorite';
+    $('favLabel').textContent = starred ? 'Starred' : 'Star';
     if (document.activeElement !== $('displayName')) $('displayName').value = s.displayName || '';
   }
 
@@ -127,6 +172,7 @@
       renderPacks(b.dataset.pack);
       send('appVizPack', b.dataset.pack);
     }));
+    $('presetSearch').addEventListener('input', () => renderControls(current));
     document.querySelectorAll('[data-open]').forEach((b) => b.addEventListener('click', () => window.open(b.dataset.open, '_blank')));
 
     $('saveName').addEventListener('click', async () => {
