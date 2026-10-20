@@ -43,10 +43,11 @@ Open `http://<tv-ip>:8092` on a phone connected to the same network. The page
 is bundled in the app and works without internet.
 
 <p align="center">
-  <img src="docs/screenshots/web-playing.png" alt="Playing" width="22%">
-  <img src="docs/screenshots/web-visualizer.png" alt="Visualizer" width="22%">
-  <img src="docs/screenshots/web-audio.png" alt="Audio" width="22%">
-  <img src="docs/screenshots/web-device.png" alt="Device" width="22%">
+  <img src="docs/screenshots/web-playing.png" alt="Playing" width="18%">
+  <img src="docs/screenshots/web-visualizer.png" alt="Visualizer" width="18%">
+  <img src="docs/screenshots/web-visualizer-packs.png" alt="Preset pack dropdown" width="18%">
+  <img src="docs/screenshots/web-audio.png" alt="Audio" width="18%">
+  <img src="docs/screenshots/web-device.png" alt="Device" width="18%">
 </p>
 
 - **Playing:** current track, progress, visualizer and crossfade summary.
