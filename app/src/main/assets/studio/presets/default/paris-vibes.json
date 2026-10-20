@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "name": "Paris Vibes",
+  "author": "generated",
+  "palette": "Pastel",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 2,
+        "blur": 46,
+        "dim": 0.62,
+        "color": "{bg}"
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 56,
+        "gap": 0.3,
+        "barWidth": 0.5,
+        "roundness": 1,
+        "gradientMode": 0,
+        "colorMode": 0,
+        "gain": 1.1,
+        "minHeight": 0.01,
+        "maxHeight": 1,
+        "smoothing": 0.6,
+        "decay": 0.9,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "tilt": 0,
+        "peakColor": "#ffffff",
+        "peakWidth": 4,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakFall": 1.1,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.1,
+        "y": 0.4,
+        "w": 0.8,
+        "h": 0.34,
+        "opacity": 1,
+        "centered": true,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{accent}",
+        "glow": 6
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.042,
+        "weight": 300,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 10,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.84,
+        "h": 0.1,
+        "opacity": 1,
+        "italic": true,
+        "align": 1,
+        "letterSpacing": 2
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}  ·  {album}",
+        "size": 0.022,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.08,
+        "y": 0.84,
+        "w": 0.84,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 1,
+        "letterSpacing": 1
+      }
+    },
+    {
+      "type": "progress",
+      "props": {
+        "color": "{primary}",
+        "color2": "#4d7cff",
+        "gradientAngle": 90,
+        "trackColor": "{text}",
+        "trackOpacity": 0.16,
+        "cornerRadius": 1,
+        "thumb": "0",
+        "thumbScale": 1.5,
+        "x": 0.1,
+        "y": 0.78,
+        "w": 0.8,
+        "h": 0.006,
+        "opacity": 1
+      }
+    }
+  ]
+}

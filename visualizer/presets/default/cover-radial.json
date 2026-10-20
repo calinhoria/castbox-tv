@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "name": "Cover radial",
+  "author": "generated",
+  "palette": "From cover",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 2,
+        "blur": 36,
+        "dim": 0.7,
+        "color": "#000000"
+      }
+    },
+    {
+      "type": "cover",
+      "props": {
+        "image": "{cover}",
+        "coverScale": 0.56,
+        "imageAspect": 1,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "imagePulse": true,
+        "blur": 0,
+        "tintColor": "#4d7cff",
+        "radialBars": 84,
+        "ringRadius": 0.64,
+        "radialLength": 0.36,
+        "radialGap": 0.32,
+        "arcStart": 0,
+        "arcSpan": 360,
+        "radialGain": 1.25,
+        "tilt": 0,
+        "radialSmoothing": 0.45,
+        "radialDecay": 0.88,
+        "radialPeakColor": "#ffffff",
+        "peakDelay": 0,
+        "peakGap": 0,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "glow": 18,
+        "haloColor": "{accent}",
+        "pulseAmount": 0.18,
+        "x": 0.3,
+        "y": 0.12,
+        "w": 0.4,
+        "h": 0.711,
+        "opacity": 1,
+        "circle": true,
+        "radialPeaks": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.05,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.85,
+        "w": 0.88,
+        "h": 0.08,
+        "opacity": 1,
+        "align": 1,
+        "marquee": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.026,
+        "weight": 400,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.93,
+        "w": 0.88,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 1,
+        "marquee": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "name": "Tokyo Neon",
+  "author": "generated",
+  "palette": "Neon",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 2,
+        "blur": 42,
+        "dim": 0.8,
+        "color": "#000000"
+      }
+    },
+    {
+      "type": "orb",
+      "props": {
+        "image": "{cover}",
+        "coverScale": 0.4,
+        "imageAspect": 1,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "circle": true,
+        "imagePulse": true,
+        "blur": 0,
+        "rings": 4,
+        "linePoints": 200,
+        "ringRadius": 0.5,
+        "gap": 0.24,
+        "radialLength": 0.4,
+        "thickness": 0.009,
+        "gain": 1.35,
+        "tilt": 0,
+        "smoothing": 0.4,
+        "decay": 0.88,
+        "arcStart": 0,
+        "angularSmooth": 0.35,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "fillColor": "#00e5ff",
+        "fillOpacity": 0,
+        "glow": 22,
+        "haloColor": "{accent}",
+        "pulseAmount": 0.2,
+        "coreSize": 0.5,
+        "x": 0.28,
+        "y": 0.06,
+        "w": 0.44,
+        "h": 0.782,
+        "opacity": 1,
+        "paletteRings": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.046,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.04,
+        "y": 0.84,
+        "w": 0.92,
+        "h": 0.08,
+        "opacity": 1,
+        "align": 0,
+        "marquee": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.024,
+        "weight": 400,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.04,
+        "y": 0.92,
+        "w": 0.92,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true,
+        "letterSpacing": 4
+      }
+    }
+  ]
+}

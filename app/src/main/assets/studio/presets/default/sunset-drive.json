@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "name": "Sunset Drive",
+  "author": "generated",
+  "palette": "Sunset",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "radial_line",
+      "props": {
+        "linePoints": 220,
+        "strokeWidth": 0.006,
+        "gain": 1.2,
+        "smoothing": 0.45,
+        "tilt": 0,
+        "ringRadius": 0.58,
+        "radialLength": 0.44,
+        "pulseAmount": 0.14,
+        "arcStart": 30,
+        "image": "{cover}",
+        "coverScale": 0.42,
+        "imageAspect": 1,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "circle": true,
+        "glow": 14,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "x": 0.28,
+        "y": 0.06,
+        "w": 0.44,
+        "h": 0.72,
+        "opacity": 1,
+        "lineMode": 0,
+        "gradient": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.046,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.8,
+        "w": 0.88,
+        "h": 0.08,
+        "opacity": 1,
+        "align": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.024,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.88,
+        "w": 0.88,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 1
+      }
+    }
+  ]
+}

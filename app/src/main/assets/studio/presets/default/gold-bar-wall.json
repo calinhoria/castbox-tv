@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "name": "Gold bar wall",
+  "author": "generated",
+  "palette": "Gold",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 64,
+        "gap": 0.24,
+        "barWidth": 0.78,
+        "roundness": 0.9,
+        "gradientMode": 0,
+        "colorMode": 0,
+        "gain": 1.25,
+        "minHeight": 0.02,
+        "maxHeight": 1,
+        "smoothing": 0.55,
+        "decay": 0.85,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "tilt": 0,
+        "peakColor": "{accent}",
+        "peakWidth": 4,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakFall": 1.2,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.05,
+        "y": 0.42,
+        "w": 0.9,
+        "h": 0.46,
+        "opacity": 1,
+        "baseline": 0,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "peaks": true,
+        "glow": 9
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.06,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 2,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.07,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.03,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.18,
+        "w": 0.88,
+        "h": 0.07,
+        "opacity": 1,
+        "align": 0
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{clock}",
+        "size": 0.028,
+        "weight": 400,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.9,
+        "y": 0.07,
+        "w": 0.06,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 2
+      }
+    }
+  ]
+}

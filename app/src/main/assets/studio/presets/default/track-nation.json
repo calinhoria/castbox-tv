@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "name": "Track Nation",
+  "author": "built-in",
+  "palette": "Deep Space",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 0,
+        "color": "{bg}"
+      }
+    },
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 2,
+        "blur": 40,
+        "dim": 0.66,
+        "color": "#000000"
+      }
+    },
+    {
+      "type": "beat_glow",
+      "props": {
+        "intensity": 1.15,
+        "haloSize": 1.9,
+        "haloOpacity": 0.8,
+        "coreSize": 0.42,
+        "bloom": 0.7,
+        "follow": 0.9,
+        "x": 0.28,
+        "y": 0.16,
+        "w": 0.44,
+        "h": 0.44,
+        "opacity": 1,
+        "color": "{text}",
+        "haloColor": "{primary}"
+      }
+    },
+    {
+      "type": "image",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "blur": 0,
+        "tintColor": "#4d7cff",
+        "x": 0.37,
+        "y": 0.25,
+        "w": 0.26,
+        "h": 0.26,
+        "opacity": 0.95,
+        "circle": true
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 96,
+        "gap": 0.36,
+        "barWidth": 0.8,
+        "roundness": 1,
+        "gradientMode": 0,
+        "colorMode": 0,
+        "gain": 1.15,
+        "minHeight": 0.02,
+        "maxHeight": 1,
+        "smoothing": 0.6,
+        "decay": 0.85,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "peakColor": "#ffffff",
+        "peakWidth": 4,
+        "peakFall": 1.1,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.1,
+        "y": 0.7,
+        "w": 0.8,
+        "h": 0.12,
+        "opacity": 1,
+        "centered": true,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "glow": 5
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.042,
+        "weight": 600,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 32,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.1,
+        "y": 0.86,
+        "w": 0.8,
+        "h": 0.07,
+        "opacity": 1,
+        "align": 1,
+        "marquee": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist} · {album}",
+        "size": 0.022,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 22,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.1,
+        "y": 0.93,
+        "w": 0.8,
+        "h": 0.045,
+        "opacity": 1,
+        "align": 1,
+        "marquee": true
+      }
+    }
+  ]
+}

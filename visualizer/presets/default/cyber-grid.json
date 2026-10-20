@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "name": "Cyber Grid",
+  "author": "generated",
+  "palette": "Cyberpunk",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 0,
+        "color": "{bg}"
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 32,
+        "gap": 0.3,
+        "barWidth": 0.8,
+        "roundness": 0,
+        "gradientMode": 2,
+        "colorMode": 0,
+        "gain": 1.35,
+        "minHeight": 0.01,
+        "maxHeight": 1,
+        "smoothing": 0.35,
+        "decay": 0.78,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "tilt": 0,
+        "peakColor": "{secondary}",
+        "peakWidth": 5,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakFall": 1.4,
+        "segmentShape": 1,
+        "segmentGap": 0.28,
+        "x": 0.04,
+        "y": 0.24,
+        "w": 0.92,
+        "h": 0.6,
+        "opacity": 1,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{accent}",
+        "glow": 14,
+        "peaks": true
+      }
+    },
+    {
+      "type": "progress",
+      "props": {
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "gradientAngle": 90,
+        "trackColor": "{accent}",
+        "trackOpacity": 0.12,
+        "cornerRadius": 0,
+        "thumb": "0",
+        "thumbScale": 1.5,
+        "x": 0.04,
+        "y": 0.9,
+        "w": 0.92,
+        "h": 0.012,
+        "opacity": 1,
+        "gradient": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.056,
+        "weight": 800,
+        "color": "{primary}",
+        "shadow": true,
+        "shadowColor": "{secondary}",
+        "shadowBlur": 14,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.06,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true,
+        "letterSpacing": 2,
+        "marquee": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.026,
+        "weight": 400,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.16,
+        "w": 0.88,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true,
+        "letterSpacing": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "castbox-webui",
+  "private": true,
+  "description": "Builds the Tailwind stylesheet for the built-in web interface (port 8092).",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i input.css -o ../app/src/main/assets/web/tailwind.css --minify",
+    "watch": "tailwindcss -c tailwind.config.js -i input.css -o ../app/src/main/assets/web/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

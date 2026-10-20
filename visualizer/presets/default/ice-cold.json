@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "name": "Ice Cold",
+  "author": "generated",
+  "palette": "Ice",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 64,
+        "gap": 0.34,
+        "barWidth": 0.42,
+        "roundness": 1,
+        "gradientMode": 0,
+        "colorMode": 0,
+        "gain": 1.2,
+        "minHeight": 0.01,
+        "maxHeight": 1,
+        "smoothing": 0.6,
+        "decay": 0.9,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "tilt": 0,
+        "peakColor": "#ffffff",
+        "peakWidth": 4,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakFall": 1.1,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.05,
+        "y": 0.24,
+        "w": 0.9,
+        "h": 0.56,
+        "opacity": 1,
+        "baseline": 0,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "glow": 8,
+        "reflection": true
+      }
+    },
+    {
+      "type": "particles",
+      "props": {
+        "count": 110,
+        "size": 0.011,
+        "speed": 0.5,
+        "sway": 0.8,
+        "gravity": 0.15,
+        "twinkle": 0.9,
+        "beatBoost": 0.3,
+        "shape": 0,
+        "sizeVar": 0,
+        "rotation": 0,
+        "colorMode": 4,
+        "color": "#ffb14d",
+        "color2": "#ff5f6d",
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 0.45,
+        "mode": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.044,
+        "weight": 300,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.07,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0,
+        "letterSpacing": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}  ·  {album}",
+        "size": 0.022,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.86,
+        "w": 0.88,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 0
+      }
+    },
+    {
+      "type": "progress",
+      "props": {
+        "color": "{primary}",
+        "color2": "#4d7cff",
+        "gradientAngle": 90,
+        "trackColor": "{text}",
+        "trackOpacity": 0.12,
+        "cornerRadius": 1,
+        "thumb": "0",
+        "thumbScale": 1.5,
+        "x": 0.06,
+        "y": 0.93,
+        "w": 0.88,
+        "h": 0.005,
+        "opacity": 1
+      }
+    }
+  ]
+}

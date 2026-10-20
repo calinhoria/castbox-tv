@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "name": "Orb",
+  "author": "generated",
+  "palette": "From cover",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 2,
+        "blur": 40,
+        "dim": 0.78,
+        "color": "#000000"
+      }
+    },
+    {
+      "type": "orb",
+      "props": {
+        "image": "{cover}",
+        "coverScale": 0.42,
+        "imageAspect": 1,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "circle": true,
+        "imagePulse": true,
+        "blur": 0,
+        "rings": 3,
+        "linePoints": 180,
+        "ringRadius": 0.52,
+        "gap": 0.3,
+        "radialLength": 0.42,
+        "thickness": 0.013,
+        "gain": 1.3,
+        "tilt": 0,
+        "smoothing": 0.45,
+        "decay": 0.87,
+        "arcStart": 0,
+        "angularSmooth": 0,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "fillColor": "#00e5ff",
+        "fillOpacity": 0,
+        "glow": 18,
+        "haloColor": "{accent}",
+        "pulseAmount": 0.16,
+        "coreSize": 0.5,
+        "x": 0.28,
+        "y": 0.08,
+        "w": 0.44,
+        "h": 0.782,
+        "opacity": 1
+      }
+    }
+  ]
+}

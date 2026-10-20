@@ -1,0 +1,14 @@
+{
+  "name": "castbox-visualizer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "JSON-preset audio visualiser engine: WASM core (C++) + visual editor SPA",
+  "scripts": {
+    "build": "./engine/build.sh",
+    "test": "./test/run.sh",
+    "presets": "node tools/generate-presets.mjs",
+    "spec": "node tools/gen-spec-tables.mjs",
+    "serve": "./serve.sh"
+  }
+}

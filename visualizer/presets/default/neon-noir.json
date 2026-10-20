@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "name": "Neon Noir",
+  "author": "generated",
+  "palette": "Mono",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 0,
+        "color": "#000000"
+      }
+    },
+    {
+      "type": "line",
+      "props": {
+        "linePoints": 200,
+        "strokeWidth": 0.004,
+        "smoothing": 0.5,
+        "gain": 1.25,
+        "tilt": 0,
+        "fillColor": "#ffffff",
+        "fillOpacity": 0.08,
+        "x": 0.05,
+        "y": 0.32,
+        "w": 0.9,
+        "h": 0.34,
+        "opacity": 1,
+        "lineMode": 1,
+        "color": "#ffffff",
+        "gradient": false,
+        "fill": true
+      }
+    },
+    {
+      "type": "beat_glow",
+      "props": {
+        "intensity": 0.7,
+        "haloSize": 2.2,
+        "haloOpacity": 0.28,
+        "coreSize": 0.3,
+        "bloom": 0.7,
+        "follow": 1,
+        "x": 0.3,
+        "y": 0.28,
+        "w": 0.4,
+        "h": 0.4,
+        "opacity": 1,
+        "color": "#f5f5f5",
+        "haloColor": "#9ca3af"
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.044,
+        "weight": 300,
+        "color": "#ffffff",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 16,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.08,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0,
+        "letterSpacing": 3
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.024,
+        "weight": 300,
+        "color": "#9ca3af",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.76,
+        "w": 0.88,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true,
+        "letterSpacing": 4
+      }
+    },
+    {
+      "type": "progress",
+      "props": {
+        "color": "#ffffff",
+        "color2": "#4d7cff",
+        "gradientAngle": 90,
+        "trackColor": "#ffffff",
+        "trackOpacity": 0.14,
+        "cornerRadius": 1,
+        "thumb": "0",
+        "thumbScale": 1.5,
+        "x": 0.06,
+        "y": 0.88,
+        "w": 0.88,
+        "h": 0.004,
+        "opacity": 1
+      }
+    }
+  ]
+}

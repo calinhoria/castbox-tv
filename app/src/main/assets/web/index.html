@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<title>CastBox TV</title>
+<link rel="stylesheet" href="/web/tailwind.css">
+</head>
+<body class="min-h-screen">
+
+<div class="pointer-events-none fixed inset-x-0 top-0 -z-10 h-72 bg-gradient-to-b from-indigo-600/20 via-cyan-500/5 to-transparent"></div>
+
+<header class="sticky top-0 z-20 border-b border-white/5 bg-slate-950/80 backdrop-blur">
+  <div class="mx-auto flex max-w-xl items-center gap-3 px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-500 text-slate-950">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8"/><path d="M7 14a3 3 0 0 1 3 -3M7 11.5a5.5 5.5 0 0 1 5.5 -5.5"/></svg>
+    </div>
+    <div class="min-w-0 flex-1">
+      <h1 class="truncate text-base font-semibold leading-tight text-white">CastBox TV</h1>
+      <p id="deviceName" class="truncate text-xs text-slate-400">&nbsp;</p>
+    </div>
+    <span id="statusChip" class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300">
+      <span id="statusDot" class="h-2 w-2 rounded-full bg-slate-500"></span>
+      <span id="statusText">Idle</span>
+    </span>
+  </div>
+</header>
+
+<main class="mx-auto max-w-xl space-y-4 px-4 pb-28 pt-5">
+
+  <!-- Now playing -->
+  <section data-panel="now" class="space-y-4">
+    <div class="card relative overflow-hidden">
+      <div class="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl"></div>
+      <p class="card-title">Now playing</p>
+      <h2 id="title" class="text-xl font-semibold leading-snug text-white">Nothing playing</h2>
+      <p id="artist" class="mt-1 text-sm text-cyan-300">Cast something from your phone</p>
+      <p id="album" class="text-sm text-slate-400"></p>
+      <div class="mt-5">
+        <div class="h-1.5 overflow-hidden rounded-full bg-slate-700/80">
+          <div id="progress" class="h-full w-0 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-500 transition-[width] duration-700"></div>
+        </div>
+        <div class="mt-2 flex justify-between text-xs tabular-nums text-slate-400">
+          <span id="position">0:00</span><span id="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3">
+      <div class="card">
+        <p class="card-title">Visualizer</p>
+        <p id="vizSummary" class="truncate text-sm font-medium text-white">-</p>
+      </div>
+      <div class="card">
+        <p class="card-title">Crossfade</p>
+        <p id="crossfade" class="truncate text-sm font-medium text-white">-</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualizer -->
+  <section data-panel="viz" class="hidden space-y-4">
+    <div class="card">
+      <div class="row !pt-0">
+        <div>
+          <p class="font-medium text-white">Visualizer</p>
+          <p class="text-xs text-slate-400">Animated background on the Now Playing screen</p>
+        </div>
+        <label class="cursor-pointer"><input id="appVizEnabled" type="checkbox" class="sr-only" data-opt="appVizEnabled"><span class="switch block"></span></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Preset</p>
+      <select id="appVizPreset" class="field" data-opt="appVizPreset"></select>
+      <div class="mt-3 grid grid-cols-3 gap-2">
+        <button class="btn-ghost" data-flag="appVizNext">
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l10 8-10 8V4zM19 5v14"/></svg>Next
+        </button>
+        <button class="btn-ghost" data-flag="appVizRandom">
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Random
+        </button>
+        <button id="favBtn" class="btn-ghost" data-flag="appVizFavoriteToggle">
+          <svg id="favIcon" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span id="favLabel">Favorite</span>
+        </button>
+      </div>
+      <p id="presetCount" class="mt-3 text-xs text-slate-500"></p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Preset pack</p>
+      <div id="packGrid" class="grid grid-cols-2 gap-2">
+        <button type="button" data-pack="builtin" class="pack">
+          <span class="block text-sm font-medium">Built-in</span><span class="block text-xs opacity-70">Visualiser Studio presets</span>
+        </button>
+        <button type="button" data-pack="classic" class="pack">
+          <span class="block text-sm font-medium">Winamp Classic</span><span class="block text-xs opacity-70">Light, older devices</span>
+        </button>
+        <button type="button" data-pack="full" class="pack">
+          <span class="block text-sm font-medium">Winamp Full</span><span class="block text-xs opacity-70">Complete MilkDrop set</span>
+        </button>
+        <button type="button" data-pack="butterchurn" class="pack">
+          <span class="block text-sm font-medium">Butterchurn</span><span class="block text-xs opacity-70">Web favourites</span>
+        </button>
+        <button type="button" data-pack="favorites" class="pack col-span-2">
+          <span class="block text-sm font-medium">Favorites</span><span class="block text-xs opacity-70">Only presets you starred</span>
+        </button>
+      </div>
+      <button class="btn-ghost mt-3 w-full" data-open="/studio/">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+        Open Visualiser Studio
+      </button>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Behaviour</p>
+      <label class="row cursor-pointer">
+        <span><span class="block text-sm text-white">Cycle presets</span><span class="block text-xs text-slate-400">Switch automatically</span></span>
+        <input id="appVizCycle" type="checkbox" class="sr-only" data-opt="appVizCycle"><span class="switch"></span>
+      </label>
+      <div class="row">
+        <span class="text-sm text-white">Cycle every</span>
+        <div class="flex w-44 items-center gap-3">
+          <input id="appVizCycleSecs" type="range" min="5" max="120" step="5" data-opt="appVizCycleSecs" data-label="cycleSecsVal">
+          <span id="cycleSecsVal" class="w-10 text-right text-xs tabular-nums text-slate-300">8 s</span>
+        </div>
+      </div>
+      <label class="row cursor-pointer">
+        <span><span class="block text-sm text-white">Colours from cover art</span><span class="block text-xs text-slate-400">Tint presets with the album palette</span></span>
+        <input id="appVizUseCoverPalette" type="checkbox" class="sr-only" data-opt="appVizUseCoverPalette"><span class="switch"></span>
+      </label>
+      <label class="row cursor-pointer">
+        <span class="text-sm text-white">Show preset name</span>
+        <input id="appVizShowName" type="checkbox" class="sr-only" data-opt="appVizShowName"><span class="switch"></span>
+      </label>
+    </div>
+
+    <details class="card group">
+      <summary class="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-slate-300">
+        Diagnostics
+        <svg viewBox="0 0 24 24" class="h-4 w-4 transition group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="mt-2">
+        <label class="row cursor-pointer">
+          <span class="text-sm text-white">Show FPS</span>
+          <input id="appVizShowFps" type="checkbox" class="sr-only" data-opt="appVizShowFps"><span class="switch"></span>
+        </label>
+        <label class="row cursor-pointer">
+          <span><span class="block text-sm text-white">Mock audio</span><span class="block text-xs text-slate-400">Silent test signal</span></span>
+          <input id="appVizMockAudio" type="checkbox" class="sr-only" data-opt="appVizMockAudio"><span class="switch"></span>
+        </label>
+      </div>
+    </details>
+  </section>
+
+  <!-- Audio -->
+  <section data-panel="audio" class="hidden space-y-4">
+    <div class="card">
+      <label class="row cursor-pointer !pt-0">
+        <span><span class="block font-medium text-white">Crossfade</span><span class="block text-xs text-slate-400">Blend the end of a track into the next</span></span>
+        <input id="crossfadeEnabled" type="checkbox" class="sr-only" data-opt="crossfadeEnabled"><span class="switch"></span>
+      </label>
+      <div id="crossfadeOptions" class="transition-opacity">
+        <div class="row">
+          <span class="text-sm text-white">Duration</span>
+          <div class="flex w-44 items-center gap-3">
+            <input id="crossfadeDuration" type="range" min="3" max="12" step="1" data-opt="crossfadeDuration" data-label="crossfadeVal">
+            <span id="crossfadeVal" class="w-10 text-right text-xs tabular-nums text-slate-300">6 s</span>
+          </div>
+        </div>
+        <div class="row">
+          <span class="text-sm text-white">Curve</span>
+          <select id="crossfadeAlgorithm" class="field !w-44" data-opt="crossfadeAlgorithm">{{ALGORITHMS}}</select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Device -->
+  <section data-panel="device" class="hidden space-y-4">
+    <div class="card">
+      <p class="card-title">Device name</p>
+      <p class="mb-3 text-xs text-slate-400">How this TV appears in Symfonium and other DLNA controllers.</p>
+      <div class="flex gap-2">
+        <input id="displayName" type="text" maxlength="48" class="field" placeholder="Living room TV">
+        <button id="saveName" class="btn-primary shrink-0">Save</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">This page</p>
+      <p class="font-mono text-sm text-cyan-300">http://<span id="deviceHost">…</span>:8092</p>
+      <p class="mt-1 text-xs text-slate-400">Open it from any phone on the same network.</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">App</p>
+      <button id="restart" class="btn-danger w-full">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5"/></svg>
+        Restart app
+      </button>
+    </div>
+  </section>
+</main>
+
+<nav class="fixed inset-x-0 bottom-0 z-30 border-t border-white/5 bg-slate-950/90 pb-[env(safe-area-inset-bottom)] backdrop-blur">
+  <div class="mx-auto grid max-w-xl grid-cols-4">
+    <button class="tab" data-tab="now">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <span>Playing</span>
+    </button>
+    <button class="tab" data-tab="viz">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
+      <span>Visualizer</span>
+    </button>
+    <button class="tab" data-tab="audio">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+      <span>Audio</span>
+    </button>
+    <button class="tab" data-tab="device">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <span>Device</span>
+    </button>
+  </div>
+</nav>
+
+<div id="toast" class="pointer-events-none fixed inset-x-0 bottom-24 z-40 mx-auto w-fit max-w-[90%] translate-y-2 rounded-full border border-white/10 bg-slate-800 px-4 py-2 text-sm text-slate-100 opacity-0 shadow-xl transition"></div>
+
+<script src="/web/app.js"></script>
+</body>
+</html>

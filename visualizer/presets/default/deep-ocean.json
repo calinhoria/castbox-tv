@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "name": "Deep Ocean",
+  "author": "generated",
+  "palette": "Ocean",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "orb",
+      "props": {
+        "image": "{cover}",
+        "coverScale": 0.46,
+        "imageAspect": 1,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "circle": true,
+        "imagePulse": true,
+        "blur": 0,
+        "rings": 3,
+        "linePoints": 180,
+        "ringRadius": 0.54,
+        "gap": 0.32,
+        "radialLength": 0.34,
+        "thickness": 0.011,
+        "gain": 1.15,
+        "tilt": 0,
+        "smoothing": 0.65,
+        "decay": 0.93,
+        "arcStart": 0,
+        "angularSmooth": 0.6,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "fillColor": "{surface}",
+        "fillOpacity": 0.55,
+        "glow": 12,
+        "haloColor": "{accent}",
+        "pulseAmount": 0.12,
+        "coreSize": 0.5,
+        "x": 0.3,
+        "y": 0.1,
+        "w": 0.4,
+        "h": 0.711,
+        "opacity": 1
+      }
+    },
+    {
+      "type": "particles",
+      "props": {
+        "count": 60,
+        "size": 0.012,
+        "speed": 0.35,
+        "sway": 0.6,
+        "gravity": 0.1,
+        "twinkle": 0.8,
+        "beatBoost": 0.3,
+        "shape": 0,
+        "sizeVar": 0,
+        "rotation": 0,
+        "colorMode": 4,
+        "color": "#ffb14d",
+        "color2": "#ff5f6d",
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 0.5,
+        "mode": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.038,
+        "weight": 300,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 10,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.08,
+        "y": 0.82,
+        "w": 0.84,
+        "h": 0.07,
+        "opacity": 1,
+        "align": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.022,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.08,
+        "y": 0.89,
+        "w": 0.84,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 1
+      }
+    }
+  ]
+}

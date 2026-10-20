@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "name": "Volcanic",
+  "author": "generated",
+  "palette": "Ember",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 0,
+        "color": "{bg}"
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 40,
+        "gap": 0.18,
+        "barWidth": 0.82,
+        "roundness": 0.4,
+        "gradientMode": 1,
+        "colorMode": 0,
+        "gain": 1.6,
+        "minHeight": 0.04,
+        "maxHeight": 1,
+        "smoothing": 0.28,
+        "decay": 0.76,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "tilt": 0,
+        "peakColor": "{accent}",
+        "peakWidth": 3,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakFall": 0.9,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.03,
+        "y": 0.36,
+        "w": 0.94,
+        "h": 0.56,
+        "opacity": 1,
+        "baseline": 0,
+        "gradient": true,
+        "color": "{secondary}",
+        "color2": "{primary}",
+        "glow": 24,
+        "peaks": true
+      }
+    },
+    {
+      "type": "particles",
+      "props": {
+        "count": 150,
+        "size": 0.016,
+        "speed": 1.6,
+        "sway": 0.6,
+        "gravity": -0.55,
+        "twinkle": 0.6,
+        "beatBoost": 1.4,
+        "shape": 2,
+        "sizeVar": 0.6,
+        "rotation": 1,
+        "colorMode": 0,
+        "color": "#ff6b35",
+        "color2": "#ffd166",
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 0,
+        "gradient": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.062,
+        "weight": 800,
+        "color": "{primary}",
+        "shadow": true,
+        "shadowColor": "{secondary}",
+        "shadowBlur": 16,
+        "shadowOffset": 4,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.06,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.026,
+        "weight": 400,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.17,
+        "w": 0.88,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true,
+        "letterSpacing": 3
+      }
+    }
+  ]
+}

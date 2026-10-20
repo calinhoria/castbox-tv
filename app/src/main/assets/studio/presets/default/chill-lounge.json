@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "name": "Chill Lounge",
+  "author": "generated",
+  "palette": "Pastel",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 2,
+        "blur": 50,
+        "dim": 0.6,
+        "color": "#1a1a2e"
+      }
+    },
+    {
+      "type": "orb",
+      "props": {
+        "image": "{cover}",
+        "coverScale": 0.44,
+        "imageAspect": 1,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "circle": true,
+        "imagePulse": true,
+        "blur": 0,
+        "rings": 2,
+        "linePoints": 160,
+        "ringRadius": 0.6,
+        "gap": 0.4,
+        "radialLength": 0.26,
+        "thickness": 0.01,
+        "gain": 1.1,
+        "tilt": 0,
+        "smoothing": 0.68,
+        "decay": 0.94,
+        "arcStart": 0,
+        "angularSmooth": 0.55,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "fillColor": "#00e5ff",
+        "fillOpacity": 0,
+        "glow": 10,
+        "haloColor": "{accent}",
+        "pulseAmount": 0.1,
+        "coreSize": 0.5,
+        "x": 0.32,
+        "y": 0.12,
+        "w": 0.36,
+        "h": 0.64,
+        "opacity": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.04,
+        "weight": 300,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.08,
+        "y": 0.8,
+        "w": 0.84,
+        "h": 0.08,
+        "opacity": 1,
+        "align": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.022,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.08,
+        "y": 0.88,
+        "w": 0.84,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 1
+      }
+    },
+    {
+      "type": "meter",
+      "props": {
+        "thickness": 0.03,
+        "cornerRadius": 1,
+        "trackColor": "{text}",
+        "trackOpacity": 0.08,
+        "x": 0.3,
+        "y": 0.94,
+        "w": 0.4,
+        "h": 0.008,
+        "opacity": 1,
+        "source": 0,
+        "direction": 0,
+        "color": "{primary}"
+      }
+    }
+  ]
+}

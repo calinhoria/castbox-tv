@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "name": "Pixel Bars",
+  "author": "generated",
+  "palette": "Neon",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "dotmatrix",
+      "props": {
+        "cols": 48,
+        "rows": 20,
+        "cellShape": 0,
+        "gap": 0.22,
+        "dimColor": "{text}",
+        "dimOpacity": 0.09,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "glow": 10,
+        "gain": 1.3,
+        "smoothing": 0.5,
+        "decay": 0.85,
+        "logScale": true,
+        "tilt": 0,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "quantize": true,
+        "peakWidth": 4,
+        "peakFall": 1.2,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakColor": "{accent}",
+        "x": 0.08,
+        "y": 0.16,
+        "w": 0.84,
+        "h": 0.66,
+        "opacity": 1,
+        "peaks": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.05,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.05,
+        "w": 0.88,
+        "h": 0.09,
+        "opacity": 1,
+        "align": 0
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.028,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.86,
+        "w": 0.88,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 0,
+        "marquee": true
+      }
+    }
+  ]
+}

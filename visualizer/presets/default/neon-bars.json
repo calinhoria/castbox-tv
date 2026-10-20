@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "name": "Neon bars",
+  "author": "built-in",
+  "palette": "Neon",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 48,
+        "gap": 0.22,
+        "barWidth": 0.78,
+        "roundness": 0.9,
+        "gradientMode": 0,
+        "colorMode": 0,
+        "gain": 1.2,
+        "minHeight": 0.02,
+        "maxHeight": 1,
+        "smoothing": 0.55,
+        "decay": 0.85,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "peakColor": "{accent}",
+        "peakWidth": 4,
+        "peakFall": 1.2,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.04,
+        "y": 0.42,
+        "w": 0.92,
+        "h": 0.5,
+        "opacity": 1,
+        "baseline": 0,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "peaks": true,
+        "glow": 8
+      }
+    },
+    {
+      "type": "line",
+      "props": {
+        "linePoints": 128,
+        "strokeWidth": 0.004,
+        "smoothing": 0.6,
+        "gain": 1.1,
+        "fillColor": "#00e5ff",
+        "fillOpacity": 0.22,
+        "x": 0.04,
+        "y": 0.3,
+        "w": 0.92,
+        "h": 0.16,
+        "opacity": 1,
+        "lineMode": 1,
+        "color": "{accent}",
+        "color2": "{secondary}",
+        "gradient": true,
+        "fill": false
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.062,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 2,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.06,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0,
+        "valign": 0
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.032,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.17,
+        "w": 0.88,
+        "h": 0.07,
+        "opacity": 1,
+        "align": 0,
+        "valign": 0
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{clock}",
+        "size": 0.03,
+        "weight": 400,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.9,
+        "y": 0.06,
+        "w": 0.06,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 2,
+        "valign": 0
+      }
+    }
+  ]
+}

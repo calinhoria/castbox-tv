@@ -1,0 +1,383 @@
+/* CastBox TV Visualiser Studio */
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #0b0d12;
+  --panel: #141821;
+  --panel-2: #1b2130;
+  --line: #262e3d;
+  --text: #dfe6f2;
+  --muted: #7b879b;
+  --accent: #4d9dff;
+  --accent-2: #22e1ff;
+  --danger: #ff5470;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body { display: flex; flex-direction: column; overflow: hidden; }
+
+/* ---------------------------------------------------------------- header */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  flex: 0 0 auto;
+}
+.top h1 { font-size: 14px; margin: 0; letter-spacing: .3px; }
+.grow { flex: 1 1 auto; }
+.status { color: var(--muted); font-size: 12px; }
+.pill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  color: var(--accent-2);
+  font-size: 11px;
+  letter-spacing: .4px;
+}
+
+/* Offline / shadowed-copy warning. Deliberately loud: a silently wrong preset
+   is far more expensive to debug than an ugly badge. */
+.pill.warn {
+  background: color-mix(in srgb, var(--danger) 18%, var(--panel-2));
+  border-color: var(--danger);
+  color: var(--danger);
+  font-weight: 600;
+  max-width: 46vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ main */
+main {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr) 320px;
+  gap: 12px;
+  padding: 12px;
+  min-height: 0;
+}
+.col { display: flex; flex-direction: column; gap: 12px; min-height: 0; overflow-y: auto; }
+/* The stage column must scroll too: the engine-variables panel lives below the
+   transport, and with body overflow hidden it would otherwise be unreachable. */
+.col-stage { overflow-y: auto; min-height: 0; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+}
+.panel.grow-panel { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.panel h2 {
+  margin: 0 0 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------- controls */
+button, .filebtn {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button:hover, .filebtn:hover { border-color: var(--accent); color: #fff; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #06101f; font-weight: 600; }
+button.primary:hover { filter: brightness(1.1); }
+
+.row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.btn-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 4px; }
+
+/* Manage-presets dialog: a tick list over a scrim, phone-friendly. */
+#manageBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 6, 12, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 50;
+}
+#manageBackdrop[hidden] { display: none; }
+#manageBox {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  width: min(520px, 100%);
+  max-height: min(84vh, 720px);
+  overflow: auto;
+}
+#manageBox h2 { margin: 0 0 6px; }
+#manageList {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--panel-2);
+  max-height: 46vh;
+  overflow: auto;
+}
+#manageList h3 {
+  margin: 0;
+  padding: 7px 10px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: #0d1119;
+  position: sticky;
+  top: 0;
+}
+#manageList label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 10px;
+  font-size: 12.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+}
+#manageList label:hover { background: rgba(255, 255, 255, 0.05); }
+#manageList .tag {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+select, input[type=text], input[type=number] {
+  background: #0d1119;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 7px 8px;
+  font-size: 12px;
+  min-width: 0;
+  width: 100%;
+}
+select:focus, input:focus { outline: 1px solid var(--accent); }
+
+input[type=range] { accent-color: var(--accent); width: 100%; }
+input[type=color] {
+  width: 40px; height: 26px; padding: 0;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: none; cursor: pointer; flex: 0 0 auto;
+}
+input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; flex: 0 0 auto; }
+
+.check { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); margin-top: 8px; }
+.muted { color: var(--muted); }
+.small { font-size: 11px; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: var(--muted); }
+
+/* ----------------------------------------------------------------- stage */
+#stageWrap {
+  position: relative;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  /* Width derived from the height cap so the canvas element is never
+     stretched: non-uniform display scaling would squash circles/squares. */
+  width: min(100%, calc((100vh - 260px) * 16 / 9));
+  max-height: calc(100vh - 250px);
+  margin-inline: auto;
+}
+#stageWrap.drag { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(77, 157, 255, .3) inset; }
+#stage, #overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#overlay { touch-action: none; cursor: default; }
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 2px 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+/* ------------------------------------------------------------- transport */
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+.transport #seek { flex: 1 1 160px; min-width: 120px; }
+.transport .check { margin: 0; }
+
+/* ---------------------------------------------------------------- layers */
+.layers { list-style: none; margin: 6px 0 0; padding: 0; }
+.layers .layer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.layers .layer:hover { background: var(--panel-2); }
+.layers .layer.selected { background: rgba(77, 157, 255, .16); border-color: var(--accent); }
+.layers .layer.hidden-layer { opacity: .55; }
+.layers .layer.hidden-layer span:first-child { text-decoration: line-through; }
+.layers .layer.dragging { opacity: .35; }
+.layers .layer.drop-target { border-color: var(--accent-2); box-shadow: 0 -2px 0 var(--accent-2) inset; }
+.layers .layer[draggable=true] { cursor: grab; }
+.layers .eye {
+  padding: 2px 8px;
+  font-size: 10px;
+  margin-left: auto;
+}
+.layers.small { font-size: 11px; }
+.layers.small .layer { padding: 4px 8px; }
+
+/* ------------------------------------------------------------- inspector */
+#inspector { overflow-y: auto; flex: 1 1 auto; padding-right: 4px; }
+.insp-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.insp-group {
+  margin: 12px 0 4px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-2);
+}
+.insp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  font-size: 12px;
+}
+.insp-label { flex: 0 0 42%; color: var(--muted); }
+.insp-row input[type=text] { flex: 1 1 auto; }
+.insp-row select { flex: 1 1 auto; }
+.insp-range { display: flex; align-items: center; gap: 6px; flex: 1 1 auto; }
+.insp-range input[type=range] { flex: 1 1 auto; min-width: 0; }
+.insp-value {
+  flex: 0 0 52px;
+  width: 52px;
+  text-align: right;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  color: var(--text);
+  background: #0d1119;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 3px 4px;
+}
+/* hide the spinner; the slider next to it already steps */
+.insp-value::-webkit-outer-spin-button,
+.insp-value::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.insp-value[type=number] { -moz-appearance: textfield; appearance: textfield; }
+
+/* ------------------------------------------------------------------ vars */
+.vars {
+  margin-top: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+.vars summary { cursor: pointer; font-size: 12px; color: var(--muted); }
+.vars .grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px 12px;
+  margin: 12px 0 8px;
+}
+.vars label { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--muted); min-width: 0; }
+.vars input { min-width: 0; }
+code {
+  background: #0d1119;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 4px;
+  font-size: 11px;
+  color: var(--accent-2);
+}
+
+/* ------------------------------------------------------------- palettes */
+.swatches { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 6px; }
+.swatches .sw {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 8px;
+  color: rgba(0, 0, 0, .55);
+  cursor: default;
+}
+.swatches .sw span { transform: translateY(2px); }
+.swatches .role-name { font-size: 10px; color: var(--muted); align-self: center; }
+
+/* Embedded palette: each swatch becomes a colour picker. */
+.swatches .sw.editable { padding: 0; overflow: hidden; position: relative; }
+.swatches .sw.editable input[type=color] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+.swatches .sw.editable span { position: relative; pointer-events: none; }
+
+/* colour prop = role picker + manual swatch */
+.insp-color { display: flex; align-items: center; gap: 6px; flex: 1 1 auto; min-width: 0; }
+.insp-color .insp-role { flex: 1 1 auto; min-width: 0; }
+.insp-color input[type=color] { flex: 0 0 auto; }
+.insp-color input[type=color]:disabled { opacity: .45; cursor: not-allowed; }
+
+@media (max-width: 1100px) {
+  main { grid-template-columns: 1fr; }
+  .col { overflow: visible; }
+  #stageWrap { max-height: none; }
+}

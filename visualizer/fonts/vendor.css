@@ -1,0 +1,16 @@
+/* Hand-maintained vendor fonts (not from Google Fonts, so tools/fetch-fonts.mjs
+   does not manage this file). DSEG7 Classic is (c) keshikan, SIL OFL 1.1. */
+@font-face {
+  font-family: 'DSEG7 Classic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('files/dseg7-classic-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'DSEG7 Classic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('files/dseg7-classic-bold.woff2') format('woff2');
+}

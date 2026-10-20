@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "name": "Sunburst",
+  "author": "generated",
+  "palette": "Sunset",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 2,
+        "blur": 40,
+        "dim": 0.74,
+        "color": "#1a0b12"
+      }
+    },
+    {
+      "type": "rays",
+      "props": {
+        "count": 160,
+        "innerRadius": 0.14,
+        "length": 0.62,
+        "strokeWidth": 0.003,
+        "taper": 0.85,
+        "spin": 0.03,
+        "spinBeat": 0.45,
+        "arcStart": 0,
+        "arcSpan": 360,
+        "pulseAmount": 0.1,
+        "gain": 1.25,
+        "smoothing": 0.42,
+        "tilt": 0,
+        "x": 0.16,
+        "y": 0.02,
+        "w": 0.68,
+        "h": 0.72,
+        "opacity": 1,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "gradient": true
+      }
+    },
+    {
+      "type": "image",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "cornerRadius": 0.5,
+        "blur": 0,
+        "tintColor": "#4d7cff",
+        "x": 0.4,
+        "y": 0.24,
+        "w": 0.2,
+        "h": 0.2,
+        "opacity": 1,
+        "circle": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.05,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 14,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.8,
+        "w": 0.88,
+        "h": 0.08,
+        "opacity": 1,
+        "align": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.024,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.88,
+        "w": 0.88,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 1,
+        "marquee": true
+      }
+    }
+  ]
+}

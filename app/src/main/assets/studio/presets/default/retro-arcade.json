@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "name": "Retro Arcade",
+  "author": "generated",
+  "palette": "Retro",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 0,
+        "color": "{bg}"
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 24,
+        "gap": 0.24,
+        "barWidth": 0.84,
+        "roundness": 0,
+        "gradientMode": 1,
+        "colorMode": 0,
+        "gain": 1.35,
+        "minHeight": 0.01,
+        "maxHeight": 1,
+        "smoothing": 0.3,
+        "decay": 0.75,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "tilt": 0,
+        "peakColor": "{text}",
+        "peakWidth": 6,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakFall": 1.6,
+        "segmentShape": 3,
+        "segmentGap": 0.18,
+        "x": 0.06,
+        "y": 0.28,
+        "w": 0.88,
+        "h": 0.5,
+        "opacity": 1,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{accent}",
+        "glow": 10,
+        "peaks": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.06,
+        "weight": 700,
+        "color": "{primary}",
+        "shadow": true,
+        "shadowColor": "{secondary}",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.06,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.028,
+        "weight": 400,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.82,
+        "w": 0.88,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 1,
+        "uppercase": true,
+        "letterSpacing": 2
+      }
+    },
+    {
+      "type": "meter",
+      "props": {
+        "thickness": 0.03,
+        "cornerRadius": 0,
+        "trackColor": "{text}",
+        "trackOpacity": 0.12,
+        "x": 0.36,
+        "y": 0.9,
+        "w": 0.28,
+        "h": 0.012,
+        "opacity": 1,
+        "source": 5,
+        "direction": 0,
+        "color": "{secondary}"
+      }
+    }
+  ]
+}

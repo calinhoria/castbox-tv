@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "name": "Spotify TV",
+  "author": "generated",
+  "palette": "Mono",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{dynamic}",
+        "color2": "#121212",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "shape",
+      "props": {
+        "cornerRadius": 1,
+        "filled": true,
+        "strokeWidth": 0.006,
+        "x": 0.022,
+        "y": 0.028,
+        "w": 0.31,
+        "h": 0.052,
+        "opacity": 1,
+        "shape": 1,
+        "color": "rgba(255,255,255,0.08)"
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "Playing from {station}",
+        "size": 0.021,
+        "weight": 500,
+        "color": "#B3B3B3",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.036,
+        "y": 0.032,
+        "w": 0.28,
+        "h": 0.045,
+        "opacity": 1,
+        "align": 0,
+        "valign": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{clock}",
+        "size": 0.026,
+        "weight": 500,
+        "color": "#FFFFFF",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.9,
+        "y": 0.032,
+        "w": 0.078,
+        "h": 0.045,
+        "opacity": 1,
+        "align": 2,
+        "valign": 1
+      }
+    },
+    {
+      "type": "image",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "cornerRadius": 0.03,
+        "blur": 0,
+        "tintColor": "#4d7cff",
+        "x": 0.05,
+        "y": 0.2,
+        "w": 0.5,
+        "h": 0.5,
+        "opacity": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.062,
+        "weight": 700,
+        "color": "#FFFFFF",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.585,
+        "y": 0.34,
+        "w": 0.39,
+        "h": 0.115,
+        "opacity": 1,
+        "align": 0,
+        "valign": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.036,
+        "weight": 400,
+        "color": "#B3B3B3",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.585,
+        "y": 0.465,
+        "w": 0.39,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 0,
+        "valign": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{position}",
+        "size": 0.022,
+        "weight": 400,
+        "color": "#B3B3B3",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.05,
+        "y": 0.845,
+        "w": 0.06,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 0,
+        "valign": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{duration}",
+        "size": 0.022,
+        "weight": 400,
+        "color": "#B3B3B3",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.89,
+        "y": 0.845,
+        "w": 0.06,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 2,
+        "valign": 1
+      }
+    },
+    {
+      "type": "progress",
+      "props": {
+        "color": "#1DB954",
+        "color2": "#4d7cff",
+        "gradientAngle": 90,
+        "trackColor": "#FFFFFF",
+        "trackOpacity": 0.28,
+        "cornerRadius": 1,
+        "thumb": "0",
+        "thumbScale": 1.5,
+        "x": 0.115,
+        "y": 0.858,
+        "w": 0.77,
+        "h": 0.011,
+        "opacity": 1,
+        "glow": 0
+      }
+    }
+  ]
+}

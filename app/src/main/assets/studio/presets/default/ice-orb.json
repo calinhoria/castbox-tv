@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "name": "Ice orb",
+  "author": "generated",
+  "palette": "Ice",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "cover",
+      "props": {
+        "image": "{cover}",
+        "coverScale": 0.58,
+        "imageAspect": 1,
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "fit": 1,
+        "cornerRadius": 0.16,
+        "imagePulse": true,
+        "blur": 0,
+        "tintColor": "#4d7cff",
+        "radialBars": 72,
+        "ringRadius": 0.62,
+        "radialLength": 0.42,
+        "radialGap": 0.34,
+        "arcStart": 0,
+        "arcSpan": 360,
+        "radialGain": 1.25,
+        "tilt": 0,
+        "radialSmoothing": 0.5,
+        "radialDecay": 0.86,
+        "radialPeakColor": "#ffffff",
+        "peakDelay": 0,
+        "peakGap": 0,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "glow": 16,
+        "haloColor": "{accent}",
+        "pulseAmount": 0.16,
+        "x": 0.31,
+        "y": 0.14,
+        "w": 0.38,
+        "h": 0.676,
+        "opacity": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.05,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 12,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.83,
+        "w": 0.88,
+        "h": 0.08,
+        "opacity": 1,
+        "align": 1
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist} · {album}",
+        "size": 0.026,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.92,
+        "w": 0.88,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 1,
+        "marquee": true
+      }
+    }
+  ]
+}

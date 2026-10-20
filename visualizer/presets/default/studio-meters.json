@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "name": "Studio meters",
+  "author": "built-in",
+  "palette": "Gold",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "shape",
+      "props": {
+        "cornerRadius": 0.1,
+        "filled": true,
+        "strokeWidth": 0.006,
+        "x": 0.05,
+        "y": 0.62,
+        "w": 0.9,
+        "h": 0.24,
+        "opacity": 1,
+        "shape": 0,
+        "color": "{surface}"
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 32,
+        "gap": 0.34,
+        "barWidth": 0.8,
+        "roundness": 0.5,
+        "gradientMode": 0,
+        "colorMode": 0,
+        "gain": 1.1,
+        "minHeight": 0.03,
+        "maxHeight": 1,
+        "smoothing": 0.55,
+        "decay": 0.82,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "peakColor": "{accent}",
+        "peakWidth": 3,
+        "peakFall": 1.6,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.09,
+        "y": 0.64,
+        "w": 0.82,
+        "h": 0.1,
+        "opacity": 1,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "gradient": true,
+        "peaks": true
+      }
+    },
+    {
+      "type": "meter",
+      "props": {
+        "thickness": 0.03,
+        "cornerRadius": 1,
+        "trackColor": "{text}",
+        "trackOpacity": 0.1,
+        "x": 0.09,
+        "y": 0.77,
+        "w": 0.82,
+        "h": 0.012,
+        "opacity": 1,
+        "source": 2,
+        "direction": 0,
+        "color": "{secondary}"
+      }
+    },
+    {
+      "type": "meter",
+      "props": {
+        "thickness": 0.03,
+        "cornerRadius": 1,
+        "trackColor": "{text}",
+        "trackOpacity": 0.1,
+        "x": 0.09,
+        "y": 0.8,
+        "w": 0.82,
+        "h": 0.012,
+        "opacity": 1,
+        "source": 1,
+        "direction": 0,
+        "color": "{primary}"
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.055,
+        "weight": 700,
+        "color": "{text}",
+        "shadow": true,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.05,
+        "y": 0.1,
+        "w": 0.9,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0,
+        "marquee": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist} — {album}",
+        "size": 0.026,
+        "weight": 300,
+        "color": "{accent}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 25,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.05,
+        "y": 0.21,
+        "w": 0.9,
+        "h": 0.06,
+        "opacity": 1,
+        "align": 0,
+        "marquee": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{bpm} BPM   {clock}",
+        "size": 0.022,
+        "weight": 400,
+        "color": "{primary}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.05,
+        "y": 0.45,
+        "w": 0.9,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true
+      }
+    }
+  ]
+}

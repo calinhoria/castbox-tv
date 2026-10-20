@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "name": "Miami Vice",
+  "author": "generated",
+  "palette": "Miami",
+  "components": [
+    {
+      "type": "background",
+      "props": {
+        "image": "{cover}",
+        "fit": 1,
+        "pulseAmount": 0,
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 1,
+        "opacity": 1,
+        "mode": 1,
+        "color": "{bg}",
+        "color2": "{surface}",
+        "gradientAngle": 90
+      }
+    },
+    {
+      "type": "spectrum",
+      "props": {
+        "bars": 28,
+        "gap": 0.26,
+        "barWidth": 0.74,
+        "roundness": 0.8,
+        "gradientMode": 2,
+        "colorMode": 0,
+        "gain": 1.4,
+        "minHeight": 0.01,
+        "maxHeight": 1,
+        "smoothing": 0.4,
+        "decay": 0.82,
+        "logScale": true,
+        "bandStart": 0,
+        "bandEnd": 1,
+        "tilt": 0,
+        "peakColor": "#ffffff",
+        "peakWidth": 4,
+        "peakDelay": 0,
+        "peakGap": 0,
+        "peakFall": 1.1,
+        "segmentShape": 0,
+        "segmentGap": 0.2,
+        "x": 0.05,
+        "y": 0.3,
+        "w": 0.9,
+        "h": 0.44,
+        "opacity": 1,
+        "centered": true,
+        "mirror": true,
+        "gradient": true,
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "glow": 20,
+        "reflection": true
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{title}",
+        "size": 0.05,
+        "weight": 700,
+        "color": "{accent}",
+        "shadow": true,
+        "shadowColor": "{primary}",
+        "shadowBlur": 14,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.06,
+        "w": 0.88,
+        "h": 0.1,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true,
+        "letterSpacing": 3
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "pattern": "{artist}",
+        "size": 0.024,
+        "weight": 400,
+        "color": "{secondary}",
+        "shadow": false,
+        "shadowColor": "#000000",
+        "shadowBlur": 8,
+        "shadowOffset": 3,
+        "marqueeSpeed": 40,
+        "marqueeGap": 0.5,
+        "marqueePause": 5,
+        "x": 0.06,
+        "y": 0.16,
+        "w": 0.88,
+        "h": 0.05,
+        "opacity": 1,
+        "align": 0,
+        "uppercase": true,
+        "letterSpacing": 5
+      }
+    },
+    {
+      "type": "progress",
+      "props": {
+        "color": "{primary}",
+        "color2": "{secondary}",
+        "gradientAngle": 90,
+        "trackColor": "{text}",
+        "trackOpacity": 0.1,
+        "cornerRadius": 1,
+        "thumb": "0",
+        "thumbScale": 1.5,
+        "x": 0.06,
+        "y": 0.86,
+        "w": 0.88,
+        "h": 0.008,
+        "opacity": 1,
+        "gradient": true
+      }
+    }
+  ]
+}

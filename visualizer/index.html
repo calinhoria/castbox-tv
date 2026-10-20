@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CastBox TV Visualiser Studio</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="fonts/vendor.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header class="top">
+  <h1>Visualiser&nbsp;Studio</h1>
+  <span class="pill" id="enginePill">wasm</span>
+  <span class="pill warn" id="sourceBadge" style="display:none"></span>
+  <span class="grow"></span>
+  <span class="status" id="status">booting…</span>
+</header>
+
+<main>
+  <!-- ------------------------------------------------------------ left -->
+  <aside class="col col-left">
+    <section class="panel">
+      <h2>Preset</h2>
+      <div class="row">
+        <select id="presetSelect"></select>
+      </div>
+      <div class="btn-row">
+        <button id="presetNew">New</button>
+        <button id="presetSave" class="primary">Save</button>
+        <button id="presetSaveAs">Save as…</button>
+        <button id="presetRename">Rename…</button>
+        <button id="presetDelete">Delete</button>
+      </div>
+      <div class="btn-row">
+        <button id="presetExport">Export .json</button>
+        <button id="presetImportBtn">Import…</button>
+        <button id="presetPasteBtn" title="Import a preset from the clipboard">Paste…</button>
+        <button id="presetManage">Manage…</button>
+        <input type="file" id="presetImportFile" accept="application/json,.json" hidden>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Components</h2>
+      <div class="row">
+        <select id="addType"></select>
+        <button id="addBtn" class="primary">Add</button>
+      </div>
+      <ul id="layers" class="layers"></ul>
+      <div class="btn-row">
+        <button id="upBtn" title="bring forward (Cmd+])">↑</button>
+        <button id="downBtn" title="send backward (Cmd+[)">↓</button>
+        <button id="dupBtn" title="duplicate (Cmd+D)">Duplicate</button>
+        <button id="delBtn" title="delete (Del)">Delete</button>
+      </div>
+      <label class="check"><input type="checkbox" id="editToggle"> Show boxes &amp; handles (E)</label>
+      <p class="muted small">Drag to move · corner/edge handles to resize · shift+corner keeps
+        aspect · arrows nudge.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Images</h2>
+      <div class="row">
+        <input type="file" id="imageFile" accept="image/*" multiple>
+      </div>
+      <div class="row">
+        <input type="text" id="coverUrl" placeholder="cover art URL">
+        <button id="coverUrlBtn">Load as #1</button>
+      </div>
+      <ul id="imageList" class="layers small"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>Palette</h2>
+      <div class="row">
+        <select id="paletteSelect"></select>
+      </div>
+      <div id="paletteSwatches" class="swatches"></div>
+      <p class="muted small">Bind any colour prop to a palette role (<code>{primary}</code>,
+        <code>{secondary}</code>, <code>{accent}</code> …) from the inspector.
+        <strong>From cover</strong> pulls the roles out of the track artwork.
+        Pick <strong>Custom</strong> to freeze the palette into the preset, then click
+        the swatches to edit it — the preset then carries its own
+        <code>roles</code> block. <code>dyn</code> always follows the artwork.</p>
+    </section>
+  </aside>
+
+  <!-- ------------------------------------------------- manage presets -->
+  <div id="manageBackdrop" hidden>
+    <div id="manageBox" role="dialog" aria-modal="true" aria-label="Manage presets">
+      <h2>Manage presets</h2>
+      <p class="muted small">Tick the presets you want gone, then Remove. Removed defaults stay
+        removed on the TV until you bring them back.</p>
+      <div class="row">
+        <button id="manageAll">Select all</button>
+        <button id="manageNone">Clear</button>
+        <button id="manageRestore">Restore defaults</button>
+      </div>
+      <div id="manageList"></div>
+      <div class="btn-row">
+        <button id="manageRemove" class="primary">Remove selected</button>
+        <button id="manageClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------------------- centre -->
+  <section class="col col-stage">
+    <div id="stageWrap">
+      <canvas id="stage"></canvas>
+      <canvas id="overlay"></canvas>
+    </div>
+    <div class="hud">
+      <span id="hud">—</span>
+      <span class="grow"></span>
+      <span class="muted small">drop an image, an audio file or a preset .json onto the stage</span>
+    </div>
+
+    <div class="transport">
+      <button id="playBtn">Play</button>
+      <label class="filebtn">Audio file<input type="file" id="audioFile" accept="audio/*" hidden></label>
+      <button id="mockBtn">Mock</button>
+      <button id="micBtn">Mic</button>
+      <label class="check"><input type="checkbox" id="monitor" checked> monitor</label>
+      <input type="range" id="seek" min="0" max="0" step="0.1" value="0">
+      <span class="mono" id="timeLabel">0:00 / 0:00</span>
+      <span class="pill" id="modeLabel">none</span>
+    </div>
+
+    <details class="vars" open>
+      <summary>Engine variables (presets can use these as <code>{name}</code>)</summary>
+      <div class="grid2">
+        <label>title<input type="text" id="meta-title" value="Blue Monday" placeholder="Track title"></label>
+        <label>artist<input type="text" id="meta-artist" value="New Order" placeholder="Artist"></label>
+        <label>album<input type="text" id="meta-album" value="Power, Corruption &amp; Lies" placeholder="Album"></label>
+        <label>station<input type="text" id="meta-station" value="" placeholder="Radio / stream name"></label>
+        <label>controller<input type="text" id="meta-controller" value="castbox" placeholder="Controller name"></label>
+      </div>
+      <p class="muted small">
+        live: <span class="mono" id="varReadout">—</span>
+      </p>
+      <p class="muted small">
+        auto: <code>{clock}</code> <code>{date}</code> <code>{time}</code>
+        <code>{position}</code> <code>{duration}</code> <code>{remaining}</code>
+        <code>{playing}</code> <code>{source}</code>
+        <code>{bpm}</code> <code>{rms}</code> <code>{peak}</code>
+        <code>{bass}</code> <code>{mid}</code> <code>{treble}</code>
+      </p>
+    </details>
+  </section>
+
+  <!-- ----------------------------------------------------------- right -->
+  <aside class="col col-right">
+    <section class="panel grow-panel">
+      <h2>Inspector</h2>
+      <div id="inspector"></div>
+    </section>
+  </aside>
+</main>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
