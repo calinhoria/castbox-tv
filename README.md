@@ -50,8 +50,8 @@ is bundled in the app and works without internet.
 </p>
 
 - **Playing:** current track, progress, visualizer and crossfade summary.
-- **Visualizer:** on/off, searchable preset list with a star on every preset, next/random,
-  preset pack (including Favorites, your starred presets from any pack),
+- **Visualizer:** on/off, then one Presets panel: a pack dropdown, a searchable list with a star on every preset,
+  and a Favorites pack made of your starred presets from any pack,
   automatic cycling, cover-art colors.
 - **Audio:** crossfade on/off, duration and curve.
 - **Device:** the name shown to DLNA controllers, and an app restart.

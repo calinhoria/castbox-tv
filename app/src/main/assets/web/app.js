@@ -48,8 +48,49 @@
     if (label) label.textContent = value + ' s';
   }
 
+  const PACKS = [
+    { id: 'builtin', label: 'Built-in', desc: 'Visualiser Studio presets' },
+    { id: 'classic', label: 'Winamp Classic', desc: 'Light, older devices' },
+    { id: 'full', label: 'Winamp Full', desc: 'Complete MilkDrop set' },
+    { id: 'butterchurn', label: 'Butterchurn', desc: 'Web favourites' },
+    { id: 'favorites', label: 'Favorites', desc: 'Your starred presets from any pack' },
+  ];
+
   function renderPacks(pack) {
-    document.querySelectorAll('[data-pack]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pack === pack)));
+    const sel = PACKS.find((p) => p.id === pack) || PACKS[0];
+    $('packLabel').textContent = sel.label;
+    $('packDesc').textContent = sel.desc;
+    $('packMenu').querySelectorAll('[role=option]').forEach((o) => o.setAttribute('aria-selected', String(o.dataset.pack === sel.id)));
+  }
+
+  function setPackMenu(open) {
+    $('packMenu').classList.toggle('hidden', !open);
+    $('packBtn').setAttribute('aria-expanded', String(open));
+    $('packChevron').classList.toggle('rotate-180', open);
+  }
+
+  function buildPackMenu() {
+    $('packMenu').replaceChildren(...PACKS.map((p) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('role', 'option');
+      btn.dataset.pack = p.id;
+      btn.className = 'group flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left transition hover:bg-white/5 aria-selected:bg-cyan-400/10';
+      btn.innerHTML = '<span class="min-w-0"><span class="block truncate text-sm font-medium text-slate-200 group-aria-selected:text-cyan-200"></span>' +
+        '<span class="block truncate text-xs text-slate-400"></span></span>' +
+        '<svg viewBox="0 0 24 24" class="hidden h-4 w-4 shrink-0 text-cyan-300 group-aria-selected:block" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>';
+      const spans = btn.querySelectorAll('span span');
+      spans[0].textContent = p.label;
+      spans[1].textContent = p.desc;
+      btn.addEventListener('click', () => {
+        setPackMenu(false);
+        renderPacks(p.id);
+        send('appVizPack', p.id);
+      });
+      li.appendChild(btn);
+      return li;
+    }));
   }
 
   const STAR_PATH = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
@@ -138,10 +179,6 @@
     renderPacks(s.appVizPack);
     fillPresets(s.appVizPresets || [], s.appVizPreset, s.appVizFavorites, s.appVizPack);
 
-    const starred = !!s.appVizIsFavorite;
-    $('favIcon').setAttribute('fill', starred ? 'currentColor' : 'none');
-    $('favBtn').classList.toggle('!text-amber-300', starred);
-    $('favLabel').textContent = starred ? 'Starred' : 'Star';
     if (document.activeElement !== $('displayName')) $('displayName').value = s.displayName || '';
   }
 
@@ -167,11 +204,10 @@
       }
     });
 
-    document.querySelectorAll('[data-flag]').forEach((b) => b.addEventListener('click', () => send(b.dataset.flag, true)));
-    document.querySelectorAll('[data-pack]').forEach((b) => b.addEventListener('click', () => {
-      renderPacks(b.dataset.pack);
-      send('appVizPack', b.dataset.pack);
-    }));
+    buildPackMenu();
+    $('packBtn').addEventListener('click', () => setPackMenu($('packMenu').classList.contains('hidden')));
+    document.addEventListener('click', (e) => { if (!$('packSelect').contains(e.target)) setPackMenu(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setPackMenu(false); });
     $('presetSearch').addEventListener('input', () => renderControls(current));
     document.querySelectorAll('[data-open]').forEach((b) => b.addEventListener('click', () => window.open(b.dataset.open, '_blank')));
 
